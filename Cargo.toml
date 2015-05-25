@@ -8,5 +8,8 @@ homepage = "https://github.com/stainless-steel/storage"
 documentation = "https://stainless-steel.github.io/storage"
 description = "The package provides data storage schemes."
 
+[dependencies]
+num = "*"
+
 [dev-dependencies]
 assert = "*"
