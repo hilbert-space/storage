@@ -7,8 +7,8 @@ extern crate num;
 
 mod matrix;
 
-pub use matrix::band::Matrix as BandMatix;
-pub use matrix::compressed::Matrix as CompressedMatix;
+pub use matrix::band::Matrix as BandMatrix;
+pub use matrix::compressed::Matrix as CompressedMatrix;
 pub use matrix::compressed::Format as CompressedFormat;
 pub use matrix::diagonal::Matrix as DiagonalMatrix;
 pub use matrix::packed::Matrix as PackedMatrix;
