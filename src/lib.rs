@@ -1,3 +1,6 @@
+//! Data storage schemes.
+
 #[cfg(test)]
-mod tests {
-}
+extern crate assert;
+
+pub mod matrix;

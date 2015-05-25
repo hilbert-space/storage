@@ -7,3 +7,6 @@ repository = "https://github.com/stainless-steel/storage"
 homepage = "https://github.com/stainless-steel/storage"
 documentation = "https://stainless-steel.github.io/storage"
 description = "The package provides data storage schemes."
+
+[dev-dependencies]
+assert = "*"
