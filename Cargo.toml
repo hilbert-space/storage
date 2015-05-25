@@ -1,6 +1,6 @@
 [package]
 name = "storage"
-version = "0.2.1"
+version = "0.3.0"
 authors = ["Ivan Ukhov <ivan.ukhov@gmail.com>"]
 license = "MIT"
 repository = "https://github.com/stainless-steel/storage"
@@ -9,7 +9,4 @@ documentation = "https://stainless-steel.github.io/storage"
 description = "The package provides data storage schemes."
 
 [dependencies]
-num = "*"
-
-[dev-dependencies]
-assert = "*"
+matrix = "*"
