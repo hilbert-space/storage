@@ -2,9 +2,7 @@
 
 extern crate matrix;
 
-pub use matrix::Band as BandMatrix;
-pub use matrix::Compressed as CompressedMatrix;
-pub use matrix::CompressedFormat;
-pub use matrix::Diagonal as DiagonalMatrix;
-pub use matrix::Packed as PackedMatrix;
-pub use matrix::PackedFormat;
+pub use matrix::BandMatrix;
+pub use matrix::{CompressedMatrix, CompressedFormat};
+pub use matrix::DiagonalMatrix;
+pub use matrix::{PackedMatrix, PackedFormat};
