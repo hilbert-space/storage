@@ -1,5 +1,3 @@
-//! Matrix storage schemes.
-
 pub mod band;
 pub mod compressed;
 pub mod dense;
