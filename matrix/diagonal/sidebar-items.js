@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DiagonalMatrix","A diagonal matrix."]]});
