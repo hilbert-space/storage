@@ -14,8 +14,8 @@ pub struct Matrix {
     pub size: usize,
     /// The storage format.
     pub format: Format,
-    /// The actual data.
-    pub values: Vec<f64>,
+    /// The data stored in the column-major order.
+    pub data: Vec<f64>,
 }
 
 /// The storage format of a packed matrix.
@@ -29,14 +29,14 @@ pub enum Format {
 
 impl From<Matrix> for dense::Matrix {
     fn from(matrix: Matrix) -> dense::Matrix {
-        let Matrix { size, format, ref values } = matrix;
+        let Matrix { size, format, ref data } = matrix;
 
-        debug_assert_eq!(values.len(), size * (size + 1) / 2);
+        debug_assert_eq!(data.len(), size * (size + 1) / 2);
 
         let mut dense = dense::Matrix {
             rows: size,
             columns: size,
-            values: vec![0.0; size * size],
+            data: vec![0.0; size * size],
         };
 
         match format {
@@ -44,7 +44,7 @@ impl From<Matrix> for dense::Matrix {
                 let mut k = 0;
                 for j in 0..size {
                     for i in j..size {
-                        dense.values[j * size + i] = values[k];
+                        dense.data[j * size + i] = data[k];
                         k += 1;
                     }
                 }
@@ -53,7 +53,7 @@ impl From<Matrix> for dense::Matrix {
                 let mut k = 0;
                 for j in 0..size {
                     for i in 0..(j + 1) {
-                        dense.values[j * size + i] = values[k];
+                        dense.data[j * size + i] = data[k];
                         k += 1;
                     }
                 }
@@ -74,7 +74,7 @@ mod tests {
         let matrix = super::Matrix {
             size: 4,
             format: super::Format::Lower,
-            values: vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0],
+            data: vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0],
         };
 
         let matrix: dense::Matrix = matrix.into();
@@ -92,7 +92,7 @@ mod tests {
         let matrix = super::Matrix {
             size: 4,
             format: super::Format::Upper,
-            values: vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0],
+            data: vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0],
         };
 
         let matrix: dense::Matrix = matrix.into();
